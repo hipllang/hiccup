@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option java_package = "com.mattmerr.hipllang.hiccup";
+option java_outer_classname = "Parsing";
+option java_multiple_files = true;
+
+import "base.proto";
+
+message ParseToken {
+    SourceInfo source_info = 1;
+
+    oneof Value {
+        NameToken name_token = 4;
+        Punctuation punctuation = 5;
+    }
+}
+
+message NameToken {
+    string text = 1;
+}
+
+enum Punctuation {
+    PLUS = 0;
+    MINUS = 1;
+    STAR = 2;
+    PERCENT = 3;
+    BANG = 4;
+    EQUALS = 5;
+
+    FORWARD_SLASH = 6;
+    BACKWARD_SLASH = 7;
+
+    OPEN_PAREN = 8;
+    CLOSE_PAREN = 9;
+
+    OPEN_SQUARE = 10;
+    CLOSE_SQUARE = 11;
+
+    OPEN_CURLY = 12;
+    CLOSE_CURLY = 13;
+
+    OPEN_ANGLE = 14;
+    CLOSE_ANGLE = 15;
+
+    TILDE = 16;
+    CARAT = 17;
+    AMPERSAND = 18;
+    PIPE = 19;
+    SEMICOLON = 20;
+    PERIOD = 21;
+    COMMA = 22;
+}
