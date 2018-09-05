@@ -1,0 +1,35 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.6'
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'com.google.protobuf'
+
+group 'com.mattmerr.hipllang'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile "com.google.guava:guava:26.0-jre"
+  compile "com.google.protobuf:protobuf-java:3.6.1"
+
+  testCompile "com.google.truth:truth:0.42"
+  testCompile "junit:junit:4.12"
+}
+
+protobuf {
+  protoc {
+    artifact = 'com.google.protobuf:protoc:3.6.1'
+  }
+}
